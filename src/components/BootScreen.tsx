@@ -6,8 +6,6 @@ interface BootScreenProps {
   onDone: () => void
 }
 
-/** Fake OS boot sequence: types log lines, fills a progress bar, then waits
- *  for any key / click to enter the site. */
 export function BootScreen({ onDone }: BootScreenProps) {
   const { t } = useApp()
   const lines = t(ui.boot.lines) as string[]
@@ -17,7 +15,6 @@ export function BootScreen({ onDone }: BootScreenProps) {
   const [done, setDone] = useState<string[]>([])
   const [ready, setReady] = useState(false)
 
-  // type characters across all lines
   useEffect(() => {
     if (ready) return
     if (lineIdx >= lines.length) {
@@ -37,7 +34,6 @@ export function BootScreen({ onDone }: BootScreenProps) {
     return () => clearTimeout(id)
   }, [lineIdx, charIdx, lines, ready])
 
-  // key / click handling: skip while loading, enter when ready
   useEffect(() => {
     const handler = () => {
       if (ready) {

@@ -1,5 +1,3 @@
-/** Pure-decoration overlays: ambient gradient/grid, CRT scanlines, vignette,
- *  and a slow moving scan sweep. All non-interactive. */
 export function CRT() {
   return (
     <>

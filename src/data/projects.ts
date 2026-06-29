@@ -1,6 +1,3 @@
-// Project data — curated from the owner's work. Bilingual (EN/TH) types kept,
-// but the UI renders English only.
-
 export interface LangStat {
   name: string
   percent: number
@@ -8,15 +5,11 @@ export interface LangStat {
 
 export interface Project {
   id: string
-  /** repo slug */
   name: string
-  /** terminal command alias used in the interactive shell */
   command: string
   title: string
   category: { en: string; th: string }
-  /** accent color used for this card's glow / badges */
   accent: string
-  /** emoji glyph shown in the window title bar */
   glyph: string
   year: string
   tagline: { en: string; th: string }

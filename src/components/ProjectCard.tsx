@@ -36,7 +36,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   const hasShots = valid.length > 0
 
-  // auto-cycle screenshots while the card is in view and not hovered/zoomed
   useEffect(() => {
     if (!hasShots || valid.length < 2 || galleryOpen || hover || !inView) return
     const id = setInterval(() => setShot((s) => (s + 1) % valid.length), 3200)

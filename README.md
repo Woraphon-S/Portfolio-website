@@ -1,33 +1,38 @@
-# Woraphon S. — Developer Portfolio
+# Woraphon Saraphon — Developer Portfolio
 
-เว็บพอร์ตโฟลิโอส่วนตัวของผม ธีมเทอร์มินัล/นักพัฒนา รองรับสองภาษา (ไทย / อังกฤษ)
-A personal portfolio website with a terminal / developer theme, available in both Thai and English.
+เว็บพอร์ตโฟลิโอส่วนตัว หน้าเดียว ธีมเทอร์มินัล/นักพัฒนา
+A single-page personal portfolio with a terminal / developer theme.
 
-## ลิงก์ / Live site
+## Tech stack
 
-> 🚧 กำลังจะ deploy — เดี๋ยวเอาลิงก์มาใส่ตรงนี้
+- React 18 + Vite 5
+- TypeScript (strict mode)
+- Framer Motion
+- Plain CSS — no UI framework
 
-## โปรเจกต์นี้คืออะไร
+Frontend-only: no backend, no database. All content is static in `src/data/`.
+Custom touches include a boot sequence, an interactive command shell, a Matrix-rain
+canvas background, CRT/glitch effects, switchable color themes, and Web Audio UI sounds.
 
-เว็บไซต์หน้าเดียวสำหรับแนะนำตัวผมและรวมผลงานที่ทำมา ออกแบบเป็นธีมเทอร์มินัลให้มีกลิ่นอายของสาย dev
-มีฉากบูตระบบตอนเข้า เทอร์มินัลที่พิมพ์คำสั่งดูข้อมูลได้จริง (`help`, `projects`, `about`, `skills` ฯลฯ)
-พื้นหลังเอฟเฟกต์ Matrix เอฟเฟกต์จอ CRT สลับธีมสีได้ และสลับภาษาไทย/อังกฤษได้ทั้งเว็บ
+## Featured projects
 
-เนื้อหาทั้งหมดเป็นข้อมูลส่วนตัว — ประวัติ ทักษะ ประสบการณ์ การศึกษา และผลงานเด่น 4 ชิ้น
-(MONTO AI, Hotel Booking Platform, NutriLens AI, Stravy)
+- **AIR PSRU** — IoT air-quality monitoring system (senior project)
+- **Stravy** — full-stack mobile fitness tracker
+- **NutriLens AI** — AI nutrition tracking platform
+- **Hotel Booking Platform** — two-sided booking web app
 
-## เทคโนโลยีที่ใช้
+## Getting started
 
-- **React 18** + **Vite 5** — โครงหลักและ build tool
-- **TypeScript** (โหมด strict) — เขียนทั้งโปรเจกต์แบบ type-safe
-- **Framer Motion** — อนิเมชันและทรานซิชัน
-- **Plain CSS** — เขียน CSS เองล้วน ไม่ใช้ UI library / framework
-- ลูกเล่นที่เขียนเอง: Matrix rain (canvas), CRT/glitch effect, เทอร์มินัลโต้ตอบ, เสียง UI (Web Audio API)
+```bash
+npm install      # install dependencies
+npm run dev      # dev server  → http://localhost:5173
+npm run build    # type-check + production build → dist/
+npm run preview  # preview the production build → http://localhost:4173
+```
 
-เป็นเว็บ frontend ล้วน ไม่มี backend ไม่มี database ข้อมูลทั้งหมดเป็น static อยู่ใน `src/data/`
+Requires Node 18+ (`.nvmrc` pins 20).
 
-## ทำขึ้นมาเพื่ออะไร
+## Deploy
 
-ตั้งใจทำไว้เป็นพอร์ตโฟลิโอแนะนำตัวเองสำหรับสมัครงานและให้คนที่สนใจดูผลงานได้ในที่เดียว
-อยากให้หน้าตาสะท้อนตัวตนการเป็นสายพัฒนา เลยเลือกธีมเทอร์มินัลแทนเว็บพอร์ตทั่ว ๆ ไป
-และถือโอกาสใช้เป็นสนามลองทำเอฟเฟกต์และอินเทอร์แอกชันต่าง ๆ ด้วยตัวเอง
+Hosted on Vercel (auto-detects Vite). `vercel.json` adds the SPA rewrite so the
+single-page app serves correctly on every route.

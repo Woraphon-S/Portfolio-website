@@ -1,11 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useApp } from '../context/AppContext'
 
-/**
- * Classic "Matrix" digital-rain rendered on a full-screen canvas.
- * Tinted with the active theme accent. Pauses when the tab is hidden and
- * respects prefers-reduced-motion.
- */
 export function MatrixRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { theme } = useApp()
@@ -41,7 +36,7 @@ export function MatrixRain() {
 
     let raf = 0
     let last = 0
-    const interval = 55 // ms between frames — slow, ambient
+    const interval = 55
 
     const draw = (now: number) => {
       raf = requestAnimationFrame(draw)
@@ -57,7 +52,6 @@ export function MatrixRain() {
         const x = i * fontSize
         const y = drops[i] * fontSize
 
-        // bright leading glyph, dim trail
         ctx.fillStyle = Math.random() > 0.975 ? '#ffffff' : accentRef.current
         ctx.fillText(char, x, y)
 

@@ -1,8 +1,3 @@
-/* ════════════════════════════════════════════════════════════════════════
-   THEME — terminal / CRT aesthetic + component styles
-   ════════════════════════════════════════════════════════════════════════ */
-
-/* ── ambient background ──────────────────────────────────────────────── */
 .bg-fx {
   position: fixed;
   inset: 0;
@@ -14,7 +9,7 @@
     var(--bg);
 }
 .bg-fx::after {
-  /* faint grid */
+
   content: '';
   position: absolute;
   inset: 0;
@@ -34,7 +29,6 @@
   opacity: 0.16;
 }
 
-/* CRT scanlines + flicker + vignette, sits above content (non-interactive) */
 .crt {
   position: fixed;
   inset: 0;
@@ -72,7 +66,6 @@
   animation: scan 7s linear infinite;
 }
 
-/* ── terminal window chrome ──────────────────────────────────────────── */
 .term-win {
   position: relative;
   background: var(--panel);
@@ -118,7 +111,6 @@
   padding: clamp(1rem, 2.5vw, 1.8rem);
 }
 
-/* ── prompt + cursor ─────────────────────────────────────────────────── */
 .prompt-sym {
   color: var(--accent);
   font-weight: 700;
@@ -141,7 +133,6 @@
 }
 .cursor.slim { width: 2px; }
 
-/* ── glitch text ─────────────────────────────────────────────────────── */
 .glitch {
   position: relative;
   color: var(--fg);
@@ -164,7 +155,6 @@
   animation: glitchBottom 3.4s infinite linear alternate-reverse;
 }
 
-/* ── buttons ─────────────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -203,7 +193,6 @@
   pointer-events: none;
 }
 
-/* ── chips / badges ──────────────────────────────────────────────────── */
 .chip {
   display: inline-block;
   padding: 0.2rem 0.6rem;
@@ -221,7 +210,6 @@
   transform: translateY(-1px);
 }
 
-/* ── section heading ─────────────────────────────────────────────────── */
 .heading {
   display: flex;
   align-items: center;
@@ -250,7 +238,6 @@
   color: var(--muted);
 }
 
-/* ── navbar ──────────────────────────────────────────────────────────── */
 .nav {
   position: fixed;
   top: 0;
@@ -337,7 +324,6 @@
 }
 .nav__burger { display: none; }
 
-/* ── boot screen ─────────────────────────────────────────────────────── */
 .boot {
   position: fixed;
   inset: 0;
@@ -388,7 +374,6 @@
   animation: pulseGlow 1.4s ease-in-out infinite;
 }
 
-/* ── hero ────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -472,7 +457,6 @@
   animation: scrollPulse 1.8s ease-in-out infinite;
 }
 
-/* ── interactive shell ───────────────────────────────────────────────── */
 .shell__screen {
   font-size: 0.86rem;
   height: 340px;
@@ -519,7 +503,6 @@
 }
 .shell__chipset .chip { cursor: pointer; }
 
-/* ── about ───────────────────────────────────────────────────────────── */
 .about__grid {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -577,7 +560,6 @@
   margin-top: 1.4rem;
 }
 
-/* ── experience ──────────────────────────────────────────────────────── */
 .exp__list {
   display: flex;
   flex-direction: column;
@@ -671,7 +653,6 @@
   gap: 0.4rem;
 }
 
-/* ── education (inside About) ────────────────────────────────────────── */
 .edu__block {
   margin-top: 1.6rem;
 }
@@ -720,7 +701,6 @@
   color: color-mix(in srgb, var(--accent) 80%, var(--muted));
 }
 
-/* ── projects ────────────────────────────────────────────────────────── */
 .projects__list {
   display: grid;
   gap: clamp(1.6rem, 4vw, 2.6rem);
@@ -797,7 +777,7 @@
   border-radius: 5px;
   cursor: zoom-in;
 }
-/* generated visual when no screenshot exists */
+
 .pcard__art {
   position: relative;
   text-align: center;
@@ -905,7 +885,6 @@
   flex-wrap: wrap;
 }
 
-/* ── gallery modal ───────────────────────────────────────────────────── */
 .gallery {
   position: fixed;
   inset: 0;
@@ -981,7 +960,6 @@
 }
 .gallery__close:hover { color: var(--accent); }
 
-/* ── skills ──────────────────────────────────────────────────────────── */
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1039,7 +1017,6 @@
   color: var(--accent);
 }
 
-/* ── contact ─────────────────────────────────────────────────────────── */
 .contact__card {
   text-align: center;
   max-width: 640px;
@@ -1121,7 +1098,6 @@ a.contact__detail:hover { color: var(--accent); }
 }
 .social svg { width: 17px; height: 17px; }
 
-/* ── footer ──────────────────────────────────────────────────────────── */
 .footer {
   border-top: 1px solid var(--line);
   padding-block: 2rem;
@@ -1132,9 +1108,6 @@ a.contact__detail:hover { color: var(--accent); }
 .footer a { color: var(--accent); }
 .footer .blink { animation: blink 1.1s steps(1) infinite; }
 
-/* ════════════════════════════════════════════════════════════════════════
-   keyframes
-   ════════════════════════════════════════════════════════════════════════ */
 @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 @keyframes flicker {
   0%, 100% { opacity: 0.85; }
@@ -1175,9 +1148,6 @@ a.contact__detail:hover { color: var(--accent); }
   100% { clip-path: inset(88% 0 0 0); transform: translate(-2px, 1px); }
 }
 
-/* ════════════════════════════════════════════════════════════════════════
-   responsive
-   ════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 880px) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__visual { display: none; }

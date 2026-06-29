@@ -6,7 +6,6 @@ import type { SkillItem } from '../data/profile'
 import { Icon } from './Icon'
 import { SectionHeading } from './SectionHeading'
 
-/** Theme-tinted brand icon (simple-icons CDN via CSS mask) or a local fallback. */
 function TechIcon({ item }: { item: SkillItem }) {
   if (item.slug) {
     const url = `url(https://cdn.simpleicons.org/${item.slug})`

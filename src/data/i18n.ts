@@ -1,5 +1,3 @@
-// UI strings (chrome / labels). Project + profile content lives in their own files.
-
 export type Lang = 'en' | 'th'
 
 export const ui = {

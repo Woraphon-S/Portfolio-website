@@ -3,18 +3,11 @@ import { useEffect, useMemo, useState } from 'react'
 interface TypewriterOptions {
   typeSpeed?: number
   deleteSpeed?: number
-  /** how long to hold a fully-typed word before deleting (ms) */
   holdTime?: number
-  /** loop through the word list forever (with delete animation) */
   loop?: boolean
-  /** delay before the very first character (ms) */
   startDelay?: number
 }
 
-/**
- * Typewriter that can type a single string once, or cycle a list of strings
- * with a delete-and-retype animation. Returns the visible substring.
- */
 export function useTypewriter(words: string | string[], opts: TypewriterOptions = {}) {
   const {
     typeSpeed = 55,
@@ -45,14 +38,12 @@ export function useTypewriter(words: string | string[], opts: TypewriterOptions 
   useEffect(() => {
     if (!started || done) return
 
-    // finished typing the current word
     if (!deleting && sub === current.length) {
       if (single && !loop) return
       const id = setTimeout(() => setDeleting(true), holdTime)
       return () => clearTimeout(id)
     }
 
-    // finished deleting -> advance to next word
     if (deleting && sub === 0) {
       setDeleting(false)
       setIndex((i) => (i + 1) % list.length)

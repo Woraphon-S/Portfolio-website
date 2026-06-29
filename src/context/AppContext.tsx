@@ -17,7 +17,6 @@ export interface ThemeScheme {
   glow: string
 }
 
-// Selectable terminal color schemes — cycled with the palette toggle.
 export const themes: ThemeScheme[] = [
   { id: 'matrix', name: 'matrix', accent: '#00ff9c', accentDim: '#0b3d2e', glow: 'rgba(0,255,156,0.35)' },
   { id: 'amber', name: 'amber', accent: '#ffb454', accentDim: '#3d2a0b', glow: 'rgba(255,180,84,0.35)' },
@@ -36,7 +35,6 @@ interface AppContextValue {
   cycleTheme: () => void
   soundOn: boolean
   toggleSound: () => void
-  /** pick the current language from a bilingual object */
   t: <T extends Bilingual>(obj: T) => T extends { en: string[] } ? string[] : string
 }
 
@@ -73,7 +71,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const theme = themes[themeIndex]
 
-  // Push the active theme onto CSS custom properties so plain CSS can react.
   useEffect(() => {
     const root = document.documentElement
     root.style.setProperty('--accent', theme.accent)
@@ -143,7 +140,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useApp() {
   const ctx = useContext(AppContext)
   if (!ctx) throw new Error('useApp must be used within AppProvider')

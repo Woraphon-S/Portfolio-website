@@ -5,7 +5,6 @@ interface SectionHeadingProps {
   sub?: string
 }
 
-/** "01. // Heading ─────" style section header. */
 export function SectionHeading({ index, title, accentWord, sub }: SectionHeadingProps) {
   return (
     <div className="heading">

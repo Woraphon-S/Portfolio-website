@@ -3,10 +3,6 @@ import { useApp } from '../context/AppContext'
 
 type AudioCtor = typeof AudioContext
 
-/**
- * Tiny synthesized UI sound effects via the Web Audio API (no asset files).
- * Respects the global sound toggle. Lazily creates one AudioContext.
- */
 export function useSound() {
   const { soundOn } = useApp()
   const ctxRef = useRef<AudioContext | null>(null)
