@@ -24,3 +24,6 @@ dist-ssr
 
 # Vercel
 .vercel
+
+# Source images (working originals — duplicated into public/images for the app)
+/images/
