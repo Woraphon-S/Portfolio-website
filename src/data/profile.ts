@@ -37,6 +37,7 @@ export interface SocialLink {
 export const profile = {
   username: 'Woraphon-S',
   githubUrl: 'https://github.com/Woraphon-S',
+  repoUrl: 'https://github.com/Woraphon-S/Portfolio-website',
 
   name: { en: 'Woraphon Saraphon', th: 'วรพล สาระผล' },
   role: { en: 'Full-Stack Developer', th: 'นักพัฒนาฟูลสแตก' },

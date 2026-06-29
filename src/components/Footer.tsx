@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container">
         <div>
           © {profile.name.en} ·{' '}
-          <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+          <a href={profile.repoUrl} target="_blank" rel="noreferrer">
             {t(ui.footer.source)}
           </a>
         </div>
