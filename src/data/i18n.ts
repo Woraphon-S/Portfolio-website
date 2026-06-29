@@ -4,11 +4,12 @@ export type Lang = 'en' | 'th'
 
 export const ui = {
   nav: {
-    home: { en: 'home', th: 'หน้าแรก' },
-    about: { en: 'about', th: 'เกี่ยวกับ' },
-    projects: { en: 'projects', th: 'ผลงาน' },
-    skills: { en: 'skills', th: 'ทักษะ' },
-    contact: { en: 'contact', th: 'ติดต่อ' },
+    home: { en: 'home', th: 'home' },
+    about: { en: 'about', th: 'about' },
+    experience: { en: 'experience', th: 'experience' },
+    projects: { en: 'projects', th: 'projects' },
+    skills: { en: 'skills', th: 'skills' },
+    contact: { en: 'contact', th: 'contact' },
   },
   boot: {
     lines: {
@@ -18,17 +19,17 @@ export const ui = {
         'loading kernel modules [ react vite framer-motion ] ...',
         'establishing secure shell ...',
         'fetching repositories from github/Woraphon-S ...',
-        'decrypting bilingual content [ en / th ] ...',
+        'decrypting content ...',
         'rendering terminal interface ...',
       ],
       th: [
-        'กำลังเริ่มระบบ portfolio.sys ...',
-        'กำลังเมานต์ /dev/projects ...',
-        'กำลังโหลดโมดูล [ react vite framer-motion ] ...',
-        'กำลังสร้างการเชื่อมต่อที่ปลอดภัย ...',
-        'กำลังดึงข้อมูล repository จาก github/Woraphon-S ...',
-        'กำลังถอดรหัสเนื้อหาสองภาษา [ en / th ] ...',
-        'กำลังเรนเดอร์หน้าจอเทอร์มินัล ...',
+        'initializing portfolio.sys ...',
+        'mounting /dev/projects ...',
+        'loading kernel modules [ react vite framer-motion ] ...',
+        'establishing secure shell ...',
+        'fetching repositories from github/Woraphon-S ...',
+        'decrypting content ...',
+        'rendering terminal interface ...',
       ],
     },
     ready: { en: 'system ready. press any key to enter.', th: 'ระบบพร้อมแล้ว กดปุ่มใดก็ได้เพื่อเข้าสู่ระบบ' },
@@ -46,8 +47,9 @@ export const ui = {
     },
   },
   sections: {
-    about: { en: 'About', th: 'เกี่ยวกับผม' },
-    projects: { en: 'Featured Projects', th: 'ผลงานเด่น' },
+    about: { en: 'About', th: 'About' },
+    experience: { en: 'Experience', th: 'Experience' },
+    projects: { en: 'Featured Projects', th: 'Featured Projects' },
     projects_sub: {
       en: 'auto-synced from github — 4 selected builds',
       th: 'ซิงก์อัตโนมัติจาก github — 4 ผลงานที่คัดมา',
@@ -66,6 +68,7 @@ export const ui = {
     live: { en: 'live demo', th: 'เดโม' },
     gallery: { en: 'gallery', th: 'แกลเลอรี' },
     noLive: { en: 'no live demo', th: 'ยังไม่มีเดโม' },
+    noCode: { en: 'no source', th: 'ไม่มีซอร์สโค้ด' },
     close: { en: 'close', th: 'ปิด' },
   },
   contact: {

@@ -19,7 +19,7 @@ const item = {
 }
 
 export function Hero() {
-  const { t, lang } = useApp()
+  const { t } = useApp()
   const sound = useSound()
   const roles = t(profile.roles) as string[]
   const { text: role } = useTypewriter(roles, { holdTime: 1600 })
@@ -66,16 +66,12 @@ export function Hero() {
 
             <motion.div className="hero__stats" variants={item}>
               <div className="hero__stat">
-                <b>{profile.stats.repos}</b>
-                <span>{lang === 'en' ? 'public repos' : 'repo สาธารณะ'}</span>
-              </div>
-              <div className="hero__stat">
                 <b>{profile.stats.featured}</b>
-                <span>{lang === 'en' ? 'featured builds' : 'ผลงานเด่น'}</span>
+                <span>featured builds</span>
               </div>
               <div className="hero__stat">
                 <b>{profile.stats.contributionsLastYear}</b>
-                <span>{lang === 'en' ? 'contributions / yr' : 'contribution / ปี'}</span>
+                <span>contributions / yr</span>
               </div>
             </motion.div>
           </motion.div>

@@ -146,15 +146,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="pcard__actions">
-          <a
-            className="btn"
-            href={project.repoUrl}
-            target="_blank"
-            rel="noreferrer"
-            onMouseEnter={sound.hover}
-          >
-            <Icon name="github" className="" /> {t(ui.card.code)}
-          </a>
+          {project.repoUrl ? (
+            <a
+              className="btn"
+              href={project.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={sound.hover}
+            >
+              <Icon name="github" className="" /> {t(ui.card.code)}
+            </a>
+          ) : (
+            <button className="btn" disabled>
+              <Icon name="github" className="" /> {t(ui.card.noCode)}
+            </button>
+          )}
           {project.liveUrl ? (
             <a
               className="btn btn--ghost"

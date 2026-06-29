@@ -12,20 +12,14 @@ interface Line {
 const SUGGESTIONS = ['help', 'projects', 'about', 'skills', 'neofetch', 'contact', 'clear']
 
 export function InteractiveTerminal() {
-  const { t, lang, cycleTheme, toggleLang } = useApp()
+  const { t, cycleTheme } = useApp()
   const sound = useSound()
   const inputRef = useRef<HTMLInputElement>(null)
   const outRef = useRef<HTMLDivElement>(null)
 
   const welcome = (): Line[] => [
     { kind: 'out', content: <span className="accent">woraphon.sh — interactive shell v1.0</span> },
-    {
-      kind: 'out',
-      content:
-        lang === 'en'
-          ? "type 'help' to see what i can do. try 'projects' or 'neofetch'."
-          : "พิมพ์ 'help' เพื่อดูคำสั่งทั้งหมด ลอง 'projects' หรือ 'neofetch'",
-    },
+    { kind: 'out', content: "type 'help' to see what i can do. try 'projects' or 'neofetch'." },
   ]
 
   const [history, setHistory] = useState<Line[]>(welcome)
@@ -33,11 +27,6 @@ export function InteractiveTerminal() {
   const [past, setPast] = useState<string[]>([])
   const [pos, setPos] = useState(-1)
 
-  // reset greeting when language flips
-  useEffect(() => {
-    setHistory(welcome())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lang])
 
   useEffect(() => {
     outRef.current?.scrollTo({ top: outRef.current.scrollHeight, behavior: 'smooth' })
@@ -133,7 +122,7 @@ export function InteractiveTerminal() {
             content: (
               <span>
                 <span className="accent">{t(g.label)}:</span>{' '}
-                <span className="muted">{g.items.join(', ')}</span>
+                <span className="muted">{g.items.map((i) => i.name).join(', ')}</span>
               </span>
             ),
           })),
@@ -174,7 +163,7 @@ export function InteractiveTerminal() {
         break
 
       case 'lang':
-        toggleLang()
+        print({ kind: 'out', content: 'language switching is disabled — english only.' })
         break
 
       case 'echo':
@@ -261,7 +250,7 @@ export function InteractiveTerminal() {
             spellCheck={false}
             autoComplete="off"
             aria-label="terminal input"
-            placeholder={lang === 'en' ? 'type a command…' : 'พิมพ์คำสั่ง…'}
+            placeholder="type a command…"
           />
         </div>
 
@@ -285,7 +274,6 @@ export function InteractiveTerminal() {
 }
 
 function NeoFetch() {
-  const { lang } = useApp()
   const ascii = ` _    _  ___  ____
 | |  | |/ _ \\|  _ \\
 | |/\\| | | | | |_) |
@@ -294,9 +282,8 @@ function NeoFetch() {
   const info: [string, string][] = [
     ['user', 'Woraphon-S'],
     ['os', 'PortfolioOS x86_64'],
-    ['role', lang === 'en' ? 'Full-Stack Developer' : 'นักพัฒนาฟูลสแตก'],
+    ['role', 'Full-Stack Developer'],
     ['stack', 'TypeScript · React · Node'],
-    ['repos', '17 public'],
     ['shell', 'woraphon.sh'],
   ]
   return (

@@ -4,10 +4,10 @@ import { useSound } from '../hooks/useSound'
 import { ui } from '../data/i18n'
 import { Icon } from './Icon'
 
-const SECTIONS = ['home', 'about', 'projects', 'skills', 'contact'] as const
+const SECTIONS = ['home', 'about', 'experience', 'projects', 'skills', 'contact'] as const
 
 export function Navbar() {
-  const { t, lang, toggleLang, theme, cycleTheme, soundOn, toggleSound } = useApp()
+  const { t, theme, cycleTheme, soundOn, toggleSound } = useApp()
   const sound = useSound()
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState<string>('home')
@@ -68,16 +68,6 @@ export function Navbar() {
         </ul>
 
         <div className="nav__meta">
-          <button
-            className="meta-btn"
-            onClick={() => {
-              toggleLang()
-              sound.select()
-            }}
-            title="switch language"
-          >
-            {lang === 'en' ? 'EN' : 'TH'}
-          </button>
           <button
             className="meta-btn"
             onClick={() => {

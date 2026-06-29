@@ -25,12 +25,13 @@ export function Contact() {
   }
 
   const socials = profile.socials.filter((s) => s.url)
+  const phoneDisplay = profile.phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
 
   return (
     <section className="section" id="contact">
       <div className="container">
         <SectionHeading
-          index="04"
+          index="05"
           title={t(ui.sections.contact) as string}
           sub={t(ui.sections.contact_sub) as string}
         />
@@ -41,8 +42,25 @@ export function Contact() {
           </p>
 
           <div className="contact__email">
-            <Icon name="mail" className="" />
-            {profile.email}
+            <Icon name="mail" className="contact__email-ico" />
+            <a className="contact__email-text" href={`mailto:${profile.email}`}>
+              {profile.email}
+            </a>
+          </div>
+
+          <div className="contact__details">
+            <a
+              className="contact__detail"
+              href={`tel:${profile.phone}`}
+              onMouseEnter={sound.hover}
+            >
+              <Icon name="phone" className="" />
+              <span>{phoneDisplay}</span>
+            </a>
+            <span className="contact__detail">
+              <Icon name="chat" className="" />
+              <span>LINE: {profile.lineId}</span>
+            </span>
           </div>
 
           <div className="contact__actions">

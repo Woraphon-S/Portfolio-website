@@ -10,7 +10,7 @@ export function Projects() {
     <section className="section" id="projects">
       <div className="container">
         <SectionHeading
-          index="02"
+          index="03"
           title={t(ui.sections.projects) as string}
           sub={t(ui.sections.projects_sub) as string}
         />

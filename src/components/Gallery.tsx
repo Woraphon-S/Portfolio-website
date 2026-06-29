@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
 import { Icon } from './Icon'
 
@@ -30,7 +31,7 @@ export function Gallery({ images, title, initialIndex = 0, onClose }: GalleryPro
     }
   }, [onClose, prev, next])
 
-  return (
+  return createPortal(
     <motion.div
       className="gallery"
       onClick={onClose}
@@ -87,6 +88,7 @@ export function Gallery({ images, title, initialIndex = 0, onClose }: GalleryPro
           </div>
         )}
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    document.body,
   )
 }
