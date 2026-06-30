@@ -100,7 +100,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="pcard__body">
         <div className="pcard__cat">{t(project.category)}</div>
         <h3 className="pcard__title">
-          {project.glyph} {project.title}
+          {project.title}
         </h3>
         <div className="pcard__year">
           {project.name} · {project.year}
